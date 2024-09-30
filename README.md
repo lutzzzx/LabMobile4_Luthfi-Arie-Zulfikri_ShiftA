@@ -1,16 +1,25 @@
-# tokokita
+# Tugas Pertemuan 3
 
-A new Flutter project.
+- **Nama** : Luthfi Arie Zulfikri
+- **NIM** : H1D022061
+- **Shift Lama** : A
+- **Shift Baru** : A
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+# Screenshot
 
-A few resources to get you started if this is your first Flutter project:
+<p align="center">
+  <img src="registrasi_page.png" alt="Halaman Registrasi" width="45%" style="margin-right: 10px;" />
+  <img src="login_page.png" alt="Halaman Login" width="45%" />
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<p align="center">
+  <img src="produk_page.png" alt="Halaman Daftar Produk" width="45%" style="margin-right: 10px;" />
+  <img src="produk_detail.png" alt="Halaman Detail Produk" width="45%" />
+</p>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+  <img src="tambah_produk.png" alt="Halaman Tambah Produk" width="45%" style="margin-right: 10px;" />
+  <img src="ubah_produk.png" alt="Halaman Ubah Produk" width="45%" />
+</p>
