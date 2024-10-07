@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Tugas Pertemuan 5
+=======
+# Tugas Pertemuan 4
+>>>>>>> 570a8828a6d3db2ca68e759ed835c2423cddd13b
 
 - **Nama** : Luthfi Arie Zulfikri
 - **NIM** : H1D022061
