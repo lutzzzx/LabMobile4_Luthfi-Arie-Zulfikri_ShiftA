@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Tugas Pertemuan 5
-=======
-# Tugas Pertemuan 4
->>>>>>> 570a8828a6d3db2ca68e759ed835c2423cddd13b
 
 - **Nama** : Luthfi Arie Zulfikri
 - **NIM** : H1D022061
@@ -72,3 +68,46 @@ else {
   );
 }
 ```
+
+
+## 2. Halaman Tambah Produk
+
+<p align="center">
+  <img src="tambahProduk.png" alt="Halaman Tambah Produk" width="45%" style="margin-right: 10px;" />
+  <img src="tambahProduk_berhasil.png" alt="Halaman Produk Berhasil" width="45%" />
+</p>
+
+Pada halaman ini, user mengisi form dengan **Kode Produk**, **Nama Produk**, dan **Harga Produk**. Setelah mengisi form, user menekan tombol **"SIMPAN"** untuk memvalidasi form.
+
+```dart
+var validate = _formKey.currentState!.validate();
+if (validate) {
+  if (!_isLoading) {
+    simpan();
+  }
+}
+```
+
+Jika validasi berhasil, fungsi `simpan()` akan dipanggil untuk mengirim data. Data dikirim menggunakan `ProdukBloc.addProduk()`, yang akan diteruskan ke server backend API untuk diproses.
+
+```dart
+Produk createProduk = Produk(id: null);
+createProduk.kodeProduk = _kodeProdukTextboxController.text;
+createProduk.namaProduk = _namaProdukTextboxController.text;
+createProduk.hargaProduk = int.parse(_hargaProdukTextboxController.text);
+
+ProdukBloc.addProduk(produk: createProduk).then((value) {
+  Navigator.of(context).push(MaterialPageRoute(
+    builder: (BuildContext context) => const ProdukPage()
+  ));
+}, onError: (error) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) => const WarningDialog(
+      description: "Simpan gagal, silahkan coba lagi",
+    )
+  );
+});
+```
+
+Jika simpan berhasil, pengguna akan diarahkan ke halaman produk (`ProdukPage`). Jika simpan gagal, sebuah dialog (`WarningDialog`) akan muncul dengan pesan **"Simpan gagal, silahkan coba lagi."**
