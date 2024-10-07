@@ -168,3 +168,43 @@ ProdukBloc.updateProduk(produk: updateProduk).then((value) {
 </p>
 
 Jika berhasil, user diarahkan kembali ke halaman daftar produk (`ProdukPage`). Jika gagal, dialog peringatan ditampilkan dengan pesan kesalahan.
+
+
+## 5. Halaman Hapus Produk
+
+User membuka halaman detail produk dengan mengklik produk dari daftar, dan data produk ditampilkan di layar.
+
+User menekan tombol **"DELETE"** untuk menghapus produk. Saat tombol **"DELETE"** ditekan, dialog konfirmasi muncul untuk memastikan apakah user benar-benar ingin menghapus produk.
+
+```dart
+OutlinedButton(
+  child: const Text("DELETE"),
+  onPressed: () => confirmHapus(), // Memanggil fungsi konfirmasi hapus
+),
+```
+
+<p align="center">
+  <img src="pert5/konfirmasi_hapus.png" alt="Konfirmasi Hapus" width="45%" />
+  <img src="pert5/hapus_berhasil.png" alt="Hapus Berhasil" width="45%" />
+</p>
+
+User akan melihat dialog konfirmasi dengan pertanyaan **"Yakin ingin menghapus data ini?"** dan tombol **"Ya"** serta **"Batal"**.
+
+Jika user menekan **"Ya"**, fungsi `deleteProduk` dipanggil untuk menghapus produk dari database. Jika penghapusan berhasil, user akan diarahkan kembali ke halaman daftar produk (`ProdukPage`). Jika gagal, dialog peringatan ditampilkan dengan pesan kesalahan.
+
+```dart
+ProdukBloc.deleteProduk(id: int.parse(widget.produk!.id!)).then(
+  (value) => {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => const ProdukPage()
+    ))
+  }, onError: (error) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => const WarningDialog(
+        description: "Hapus gagal, silahkan coba lagi",
+      )
+    );
+});
+```
+
